@@ -5,7 +5,6 @@ import 'package:arcade_motoru/ziplama.dart';
 import 'package:flutter/material.dart';
 import 'package:studio_core/app/arcade_stage.dart';
 import 'package:studio_core/app/game_api.dart';
-import 'package:studio_core/core/game_rules.dart';
 
 const ziplamaId = 'oyun-sonsuz-ziplama';
 
@@ -88,7 +87,7 @@ final ziplamaConfig = GameConfig(
   rules: ziplamaRules,
   buildPlay: (ctx) => ArcadeStage(
     ctx: ctx,
-    create: () => ziplamaRules.createSim((ctx.generated as GeneratedLevel).puzzle),
+    create: () => ziplamaRules.createSim(ctx.generated.puzzle),
     paint: (c, s, p, t) {
       arcadeLang = ctx.lang;
       paintBounce(c, s, p, t);
